@@ -12,3 +12,23 @@
 /**
  * Implementations
  */
+
+function popularityTracker(scores) {
+  let increasingTrend = true,
+    decreasingTrend = true;
+
+  for (let i = 0; i < scores.length - 1; i++) {
+    if (scores[i] > scores[i + 1]) {
+      increasingTrend = false;
+    }
+    if (scores[i] < scores[i + 1]) {
+      decreasingTrend = false;
+    }
+  }
+
+  if (increasingTrend && decreasingTrend)
+    return "popualrity did not fluctuate at all";
+  if (increasingTrend) return "increasing trend";
+  if (decreasingTrend) return "decreasing trend";
+  return "popularity is fluctuating";
+}
